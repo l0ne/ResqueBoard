@@ -5,18 +5,16 @@ php:
   - 5.4
   - 5.5
 
-services: redis
-
 before_script:
-  - wget https://github.com/nicolasff/phpredis/archive/2.2.5.zip -O php-redis.zip
+  - wget https://github.com/nicolasff/phpredis/archive/2.2.3.zip -O php-redis.zip
   - unzip php-redis.zip
-  - cd phpredis-2.2.5/
+  - cd phpredis-2.2.3/
   - phpize
   - ./configure
   - make && make install
   - echo "extension = redis.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - cd ../
-  - rm -R phpredis-2.2.5/
+  - rm -R phpredis-2.2.3/
   - phpenv rehash
   - composer self-update
   - composer install --prefer-source
